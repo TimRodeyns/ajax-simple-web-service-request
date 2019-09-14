@@ -1,24 +1,261 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quotes</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-</head>
-<body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>ITim</title>
 
 
-    <div class="blok">
-      <h1>Quote of the day</h1>
-      <q class="quote"></q><br>
+    <style>
+            h1 {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                font-family: Open Sans, sans-serif;
+                color: #fff;
+                font-weight: 10;
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 2em;
+            }
+            body {
+                background: linear-gradient(45deg, #8ac8cf, #2d4e5c);
+                background-size: 300% 300%;
+                animation: BackgroundGradient 5s ease infinite;
+            }
+            
+            @keyframes BackgroundGradient {
+                0% {background-position: 0% 50%;}
+                50% {background-position: 100% 50%;}
+                100% {background-position: 0% 50%;}
+            }
 
-      <button class="refresh" value="Refresh Page" onClick="window.location.reload()">New quote!</button>
+            html {
+                height:100%;
+            }
+          /*  ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 20px;
+                overflow: hidden;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                }
+*/
+            li {
+               /* float: right;*/
+                font-family: Open Sans, sans-serif;
+                font-size: 1.5em;
+                }
 
-    </div>
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px 5px 16px;
+                text-decoration: none;
+                position: relative;
+                }
 
-<script type="text/javascript" src="js/script.js"></script>
-</body>
+            a {
+                color: white;
+                }
+
+            li > a:hover {
+                text-decoration: none;
+                color: #76b3b9;
+                }
+            li > a:before {
+                text-decoration: none;
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: #76b3b9;
+                visibility: hidden;
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+                -webkit-transition: all 0.4s ease-in-out 0s;
+                transition: all 0.4s ease-in-out 0s;
+                }
+
+            li > a:hover:before {
+                text-decoration: none;
+                visibility: visible;
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+            }  
+
+            p {
+              text-align: center;
+              color: white;
+            }
+
+            @media only screen and (max-width: 990px) {
+            .navbar {
+                background: linear-gradient(45deg, #63abb3, #2d4e5c);
+            }
+            h1 {
+                position: absolute;
+               /* left: 50%;
+                top: 70%;
+                transform: translateX(-50%) translateY(-70%);*/
+                font-family: Open Sans, sans-serif;
+                color: #fff;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 1.9em;
+                padding: 5px;
+            }
+
+            .mhidden {
+              display:none;
+            }
+            }
+            
+</style>
+
+  </head>
+  <body>
+
+      <!-- <ul>
+            <li><a class="active" href="#home">Contact</a></li>
+            <li><a href="#news">Clients</a></li>
+            <li><a href="#contact">Services</a></li>
+            <li><a href="#about">About</a></li>
+            </ul>
+        </ul>-->
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#">
+                    <img src="http://www.itim.nl/images/ITI-Logo-ITIM-Consultancy.png" width="200" height="100" class="d-inline-block align-top" alt="">
+                    </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div id="navbarTogglerDemo02" class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li class="nav-item text-white">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Clients</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+              </nav>
+
+              <div class="container">
+                  <div class="row mt-5 mhidden">
+                      <div class="col mt-5">
+                      </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col mt-5">
+                        </div>
+                      </div>
+                  <div class="row">
+                    <div class="col">
+                    </div>
+                    <div class="col-12 mt-5">
+                        <h1>We design
+                            <span class="txt-rotate" data-period="2000" data-rotate='[ "websites", "brands", "online shops", "logos", "adverts" ]'></span>
+                        </h1>
+                    </div>
+                    <div class="col">
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                      </div>
+                      <div class="col-6 mt-5">
+                          <p>It's that simple
+                          </p>
+                      </div>
+                      <div class="col">
+                      </div>
+                    </div>
+                </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+    var TxtRotate = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtRotate.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+  var that = this;
+  var delta = 200 - Math.random() * 100;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 350;
+  }
+
+  setTimeout(function() {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function() {
+  var elements = document.getElementsByClassName('txt-rotate');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid white }";
+  document.body.appendChild(css);
+};
+</script>
+  </body>
 </html>
